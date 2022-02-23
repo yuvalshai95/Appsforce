@@ -25,7 +25,8 @@ export function updateUser(updatedUser) {
       dispatch({type: 'UPDATE_USER', user});
       dispatch(setUserMsg({txt: 'User Updated Successfully!', type: 'info'}));
     } catch (err) {
-      console.log('Cannot update user');
+      console.log('Cannot update user', err);
+      dispatch(setUserMsg({txt: 'Update failed!', type: 'warning'}));
     }
   };
 }
@@ -38,6 +39,7 @@ export function addUser(userToAdd) {
       dispatch(setUserMsg({txt: 'User Added Successfully!', type: 'info'}));
     } catch (err) {
       console.log('Cannot add user', err);
+      dispatch(setUserMsg({txt: 'Add failed!', type: 'warning'}));
     }
   };
 }
@@ -50,6 +52,7 @@ export function removeUser(id) {
       dispatch(setUserMsg({txt: 'User Removed Successfully!', type: 'info'}));
     } catch (err) {
       console.log('Cannot remove user', err);
+      dispatch(setUserMsg({txt: 'Remove failed!', type: 'warning'}));
     }
   };
 }
