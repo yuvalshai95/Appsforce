@@ -22,6 +22,17 @@ export function updateUser(updatedUser) {
   };
 }
 
+export function removeUser(id) {
+  return async dispatch => {
+    try {
+      await userService.removeUser(id);
+      dispatch({type: 'REMOVE_USER', id});
+    } catch (err) {
+      console.log('Cannot remove user', err);
+    }
+  };
+}
+
 export function setUserMsg(props) {
   const txt = props ? props.txt : null;
   const type = props ? props.type : null;

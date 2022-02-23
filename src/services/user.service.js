@@ -6,6 +6,7 @@ export const userService = {
   query,
   getUserById,
   updateUser,
+  removeUser,
 };
 
 const STORAGE_KEY = 'userDB';
@@ -20,6 +21,10 @@ async function getUserById(id) {
 
 async function updateUser(user) {
   return storageService.put(STORAGE_KEY, user);
+}
+
+async function removeUser(id) {
+  return storageService.remove(STORAGE_KEY, id);
 }
 
 async function _setUsers() {

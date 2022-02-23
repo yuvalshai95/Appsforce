@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Outlet, useNavigate } from 'react-router'
 
 // Actions
-import { loadUsers } from '../store/user/user.action.js'
+import { loadUsers, removeUser } from '../store/user/user.action.js'
 import { setUserMsg } from '../store/user/user.action';
 
 // Cmps
@@ -25,6 +25,9 @@ export function HomePage() {
   //   dispatch(setUserMsg({ txt: 'Hello!', type: 'info' }))
   // }
 
+  const handleRemoveUser = (userId) => {
+    dispatch(removeUser(userId))
+  }
 
   const handleEditUser = (id) => {
     navigate(`edit/${id}`)
@@ -41,6 +44,7 @@ export function HomePage() {
         <UserList
           users={users}
           handleEditUser={handleEditUser}
+          handleRemoveUser={handleRemoveUser}
         />
 
 
