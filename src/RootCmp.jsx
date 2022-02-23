@@ -19,6 +19,8 @@ export function RootCmp() {
           <Route path='/' element={<HomePage />}>
             {/* EDIT USER  */}
             <Route path='edit/:userId' element={<UserEdit />} />
+            {/* ADD USER */}
+            <Route path='edit' element={<UserEdit />} />
           </Route>
         </Routes>
       </main>

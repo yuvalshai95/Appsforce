@@ -22,6 +22,17 @@ export function updateUser(updatedUser) {
   };
 }
 
+export function addUser(userToAdd) {
+  return async dispatch => {
+    try {
+      const savedUser = await userService.addUser(userToAdd);
+      dispatch({type: 'ADD_USER', user: savedUser});
+    } catch (err) {
+      console.log('Cannot add user', err);
+    }
+  };
+}
+
 export function removeUser(id) {
   return async dispatch => {
     try {

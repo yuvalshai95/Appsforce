@@ -25,7 +25,7 @@ function post(entityType, newEntity) {
   newEntity.id = _makeId();
   return query(entityType).then(entities => {
     const isExists = entities.find(entity => {
-      return entity.username === newEntity.username;
+      return entity.email === newEntity.email;
     });
     if (isExists) {
       console.log('Already exists, probably trying to sign up guest again');

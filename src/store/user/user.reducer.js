@@ -19,6 +19,9 @@ export function userReducer(state = initialState, action) {
     case 'REMOVE_USER':
       return (newState = {...state, users: state.users.filter(user => user.id !== action.id)});
 
+    case 'ADD_USER':
+      return (newState = {...state, users: [action.user, ...state.users]});
+
     case 'SET_MSG':
       return (newState = {...state, userMsg: action.userMsg});
 

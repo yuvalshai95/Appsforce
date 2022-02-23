@@ -33,6 +33,10 @@ export function HomePage() {
     navigate(`edit/${id}`)
   }
 
+  const handleAddUser = () => {
+    navigate('edit')
+  }
+
   if (!users.length) return <Loader />
 
   return (
@@ -40,7 +44,7 @@ export function HomePage() {
       <Outlet />
       <section className="home-page">
         <h1>Users App</h1>
-
+        <button onClick={handleAddUser}>Add User</button>
         <UserList
           users={users}
           handleEditUser={handleEditUser}

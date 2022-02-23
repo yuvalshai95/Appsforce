@@ -4,10 +4,11 @@ import { useNavigate, useParams } from 'react-router';
 import { useForm } from "react-hook-form";
 
 // Actions
-import { updateUser } from '../store/user/user.action.js'
+import { updateUser, addUser } from '../store/user/user.action.js'
 
 // Services
 import { userService } from '../services/user.service.js'
+
 
 export const UserEdit = () => {
     const dispatch = useDispatch()
@@ -18,27 +19,37 @@ export const UserEdit = () => {
 
     useEffect(() => {
         onLoadUser()
-        return () => {
-            setUser(null)
-        }
+        return () => { setUser(null) }
     }, [])
 
     const onLoadUser = async () => {
-        const user = await userService.getUserById(userId)
+        const user = userId ? await userService.getUserById(userId) : userService.getEmptyUser();
         setUser(user)
 
     }
 
-    const onSubmit = ({ firstName, lastName, title, country, city, street }) => {
-        const userToUpdate = {
-            id: user.id,
-            name: { first: firstName, last: lastName, title: title },
-            email: user.email,
-            imgUrl: user.imgUrl,
-            address: { country: country, city: city, street: { name: street } }
+    const onSubmit = ({ firstName, lastName, title, country, city, street, email }) => {
+        // Edit
+        if (userId) {
+            const userToUpdate = {
+                id: user.id,
+                name: { first: firstName, last: lastName, title: title },
+                email,
+                imgUrl: user.imgUrl,
+                address: { country: country, city: city, street: { name: street } }
+            }
+            dispatch(updateUser(userToUpdate))
+            handleGoBack()
+        } else { // Add
+            const userToAdd = {
+                name: { first: firstName, last: lastName, title: title },
+                email: email,
+                imgUrl: `https://robohash.org/${firstName}?set=set5`,
+                address: { country: country, city: city, street: { name: street } }
+            }
+            dispatch(addUser(userToAdd))
+            handleGoBack()
         }
-        dispatch(updateUser(userToUpdate))
-        handleGoBack()
     }
 
     const handleGoBack = () => {
@@ -50,10 +61,9 @@ export const UserEdit = () => {
         <div className="user-edit-screen-overlay">
             <div className="user-edit-container">
                 <button className="close-btn" onClick={handleGoBack} >✖</button>
-                <h1>Edit profile</h1>
+                {userId ? <h1>Edit profile</h1> : <h1>Add User</h1>}
                 {user &&
                     <form className="flex column align-center justify-center" onSubmit={handleSubmit(onSubmit)}>
-                        <h2>Name</h2>
                         <label>*First Name:
                         <input type="text"
                                 defaultValue={user.name.first}
@@ -93,7 +103,6 @@ export const UserEdit = () => {
                         </label>
                         <p>{errors.title?.message}</p>
 
-                        <h2>Location</h2>
                         <label>*Country:
                         <input type="text"
                                 defaultValue={user.address.country}
@@ -133,7 +142,6 @@ export const UserEdit = () => {
                         </label>
                         <p>{errors.street?.message}</p>
 
-                        <h2>Email</h2>
                         <label>*Email:
                         <input type="email"
                                 defaultValue={user.email}

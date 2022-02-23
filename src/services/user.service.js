@@ -7,6 +7,8 @@ export const userService = {
   getUserById,
   updateUser,
   removeUser,
+  getEmptyUser,
+  addUser,
 };
 
 const STORAGE_KEY = 'userDB';
@@ -27,6 +29,19 @@ async function removeUser(id) {
   return storageService.remove(STORAGE_KEY, id);
 }
 
+async function addUser(user) {
+  return storageService.post(STORAGE_KEY, user);
+}
+
+function getEmptyUser() {
+  return {
+    name: {first: '', last: '', title: ''},
+    email: '',
+    imgUrl: '',
+    address: {country: '', city: '', street: ''},
+  };
+}
+
 async function _setUsers() {
   const {data} = await axios.get('https://randomuser.me/api/?results=10');
   const users = data.results.map(user => {
@@ -34,7 +49,7 @@ async function _setUsers() {
       id: utilService.makeId(),
       name: user.name,
       email: user.email,
-      imgUrl: user.picture.large,
+      imgUrl: user.picture.medium,
       address: {country: user.location.country, city: user.location.city, street: user.location.street},
     };
     return miniUser;
