@@ -23,6 +23,7 @@ export function updateUser(updatedUser) {
     try {
       const user = await userService.updateUser(updatedUser);
       dispatch({type: 'UPDATE_USER', user});
+      dispatch(setUserMsg({txt: 'User Updated Successfully!', type: 'info'}));
     } catch (err) {
       console.log('Cannot update user');
     }
@@ -34,6 +35,7 @@ export function addUser(userToAdd) {
     try {
       const savedUser = await userService.addUser(userToAdd);
       dispatch({type: 'ADD_USER', user: savedUser});
+      dispatch(setUserMsg({txt: 'User Added Successfully!', type: 'info'}));
     } catch (err) {
       console.log('Cannot add user', err);
     }
@@ -45,6 +47,7 @@ export function removeUser(id) {
     try {
       await userService.removeUser(id);
       dispatch({type: 'REMOVE_USER', id});
+      dispatch(setUserMsg({txt: 'User Removed Successfully!', type: 'info'}));
     } catch (err) {
       console.log('Cannot remove user', err);
     }

@@ -12,19 +12,22 @@ export function UserMsg() {
 
     const userMsg = useSelector(state => state.userModule.userMsg);
 
+    useEffect(() => {
+        if (!userMsg) return
+        const timeoutId = setTimeout(() => {
+            dispatch(setUserMsg(null))
+        }, 2000);
+        return () => {
+            clearTimeout(timeoutId)
+        }
+    }, [userMsg])
 
     const onCloseModal = () => {
-        clearTimeout(timeoutId)
+
         dispatch(setUserMsg(null))
     }
 
     if (!userMsg?.txt) return null
-
-    // Should we clean it in the return of the useEffect?
-    // Is it okey to put it here and not inside a funtion or useEffect
-    const timeoutId = setTimeout(() => {
-        dispatch(setUserMsg(null))
-    }, 2500);
 
     return (
         <section className={`user-msg ${userMsg.type}`}>
