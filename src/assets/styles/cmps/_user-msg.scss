@@ -1,12 +1,11 @@
 .user-msg {
     position: fixed;
     bottom: 5px;
-    right: 5px;
-    width: 350px;
+    left: 5px;
+    width: 300px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     display: flex;
     flex-direction: column;
-
     justify-content: center;
     align-items: center;
     min-height: 70px;
@@ -15,19 +14,23 @@
     border-radius: 3px;
     color: whitesmoke;
 
-    .primary-close-btn { 
-        color: whitesmoke;
+    .close-btn { 
+        color: white;
+        background-color: inherit;
+        border: none;
         padding: 3px;
+        position: absolute;
+        top: 3px;
+        right: 3px;
         
-        .close-primary-icon { 
+        .close-icon { 
             box-sizing: unset;
             line-height: 10px;
             padding: 3px;
             border-radius: 2px;
 
-            &:hover { 
+            &:hover {
                 background-color: rgba(255, 255, 255, 0.247);
-                color: white;
             }
         }
 
@@ -37,9 +40,7 @@
         text-align: left;
     }
 
-    &.info {
-    }
-
     &.warning {
+        background-color: rgb(189, 89, 89);
     }
 }

@@ -1,4 +1,8 @@
-.user-list{
-    flex-wrap:wrap;
-    gap: 10px;
+.user-list-container{
+   .user-list{
+    padding: 10px;
+    flex-wrap: wrap;
+    gap: 15px; 
+   }
+
 }

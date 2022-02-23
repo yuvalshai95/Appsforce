@@ -63,107 +63,123 @@ export const UserEdit = () => {
                 <button className="close-btn" onClick={handleGoBack} >✖</button>
                 {userId ? <h1>Edit profile</h1> : <h1>Add User</h1>}
                 {user &&
-                    <form className="flex column align-center justify-center" onSubmit={handleSubmit(onSubmit)}>
-                        <label>*First Name:
-                        <input type="text"
-                                defaultValue={user.name.first}
-                                placeholder="First name"
-                                {...register("firstName", {
-                                    required: "This field is required",
-                                    minLength: { value: 3, message: "Min length is 3" },
-                                    maxLength: { value: 12, message: "Max length is 12" }
-                                })}
-                            />
-                        </label>
-                        <p>{errors.firstName?.message}</p>
+                    <form className="edit-form flex column align-center justify-center" onSubmit={handleSubmit(onSubmit)}>
+                        <div className="form-content">
+                            <div className="input-wrapper">
+                                <label>*First Name:
+                                <input type="text"
+                                        defaultValue={user.name.first}
+                                        placeholder="First name"
+                                        {...register("firstName", {
+                                            required: "This field is required",
+                                            minLength: { value: 3, message: "Min length is 3" },
+                                            maxLength: { value: 12, message: "Max length is 12" }
+                                        })}
+                                    />
+                                </label>
+                                <p>{errors.firstName?.message}</p>
+                            </div>
 
-                        <label>*Last Name:
-                        <input type="text"
-                                defaultValue={user.name.last}
-                                placeholder="Last name"
-                                {...register("lastName", {
-                                    required: "This field is required",
-                                    minLength: { value: 3, message: "Min length is 3" },
-                                    maxLength: { value: 12, message: "Max length is 12" }
-                                })}
-                            />
-                        </label>
-                        <p>{errors.lastName?.message}</p>
+                            <div className="input-wrapper">
+                                <label>*Last Name:
+                                <input type="text"
+                                        defaultValue={user.name.last}
+                                        placeholder="Last name"
+                                        {...register("lastName", {
+                                            required: "This field is required",
+                                            minLength: { value: 3, message: "Min length is 3" },
+                                            maxLength: { value: 12, message: "Max length is 12" }
+                                        })}
+                                    />
+                                </label>
+                                <p>{errors.lastName?.message}</p>
+                            </div>
 
-                        <label>*Title:
-                        <input type="text"
-                                defaultValue={user.name.title}
-                                placeholder="Title"
-                                {...register("title", {
-                                    required: "This field is required",
-                                    minLength: { value: 2, message: "Min length is 3" },
-                                    maxLength: { value: 12, message: "Max length is 12" }
-                                })}
-                            />
-                        </label>
-                        <p>{errors.title?.message}</p>
+                            <div className="input-wrapper">
+                                <label>*Title:
+                                <input type="text"
+                                        defaultValue={user.name.title}
+                                        placeholder="Title"
+                                        {...register("title", {
+                                            required: "This field is required",
+                                            minLength: { value: 2, message: "Min length is 3" },
+                                            maxLength: { value: 12, message: "Max length is 12" }
+                                        })}
+                                    />
+                                </label>
+                                <p>{errors.title?.message}</p>
+                            </div>
 
-                        <label>*Country:
-                        <input type="text"
-                                defaultValue={user.address.country}
-                                placeholder="Country"
-                                {...register("country", {
-                                    required: "This field is required",
-                                    minLength: { value: 3, message: "Min length is 3" },
-                                    maxLength: { value: 25, message: "Max length is 25" }
-                                })}
-                            />
-                        </label>
-                        <p>{errors.country?.message}</p>
+                            <div className="input-wrapper">
+                                <label>*Country:
+                                <input type="text"
+                                        defaultValue={user.address.country}
+                                        placeholder="Country"
+                                        {...register("country", {
+                                            required: "This field is required",
+                                            minLength: { value: 3, message: "Min length is 3" },
+                                            maxLength: { value: 25, message: "Max length is 25" }
+                                        })}
+                                    />
+                                </label>
+                                <p>{errors.country?.message}</p>
+                            </div>
 
-                        <label>*City:
-                        <input type="text"
-                                defaultValue={user.address.city}
-                                placeholder="City"
-                                {...register("city", {
-                                    required: "This field is required",
-                                    minLength: { value: 3, message: "Min length is 3" },
-                                    maxLength: { value: 25, message: "Max length is 25" }
-                                })}
-                            />
-                        </label>
-                        <p>{errors.city?.message}</p>
+                            <div className="input-wrapper">
+                                <label>*City:
+                                <input type="text"
+                                        defaultValue={user.address.city}
+                                        placeholder="City"
+                                        {...register("city", {
+                                            required: "This field is required",
+                                            minLength: { value: 3, message: "Min length is 3" },
+                                            maxLength: { value: 25, message: "Max length is 25" }
+                                        })}
+                                    />
+                                </label>
+                                <p>{errors.city?.message}</p>
+                            </div>
 
-                        <label>*street:
-                        <input type="text"
-                                defaultValue={user.address.street.name}
-                                placeholder="Street"
-                                {...register("street", {
-                                    required: "This field is required",
-                                    minLength: { value: 3, message: "Min length is 3" },
-                                    maxLength: { value: 25, message: "Max length is 25" }
-                                })}
-                            />
-                        </label>
-                        <p>{errors.street?.message}</p>
+                            <div className="input-wrapper">
+                                <label>*street:
+                                <input type="text"
+                                        defaultValue={user.address.street.name}
+                                        placeholder="Street"
+                                        {...register("street", {
+                                            required: "This field is required",
+                                            minLength: { value: 3, message: "Min length is 3" },
+                                            maxLength: { value: 25, message: "Max length is 25" }
+                                        })}
+                                    />
+                                </label>
+                                <p>{errors.street?.message}</p>
+                            </div>
 
-                        <label>*Email:
-                        <input type="email"
-                                defaultValue={user.email}
-                                placeholder="Email"
-                                {...register("email", {
-                                    required: "This field is required",
-                                    pattern: {
-                                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                                        message: "invalid email address"
-                                    }
-                                })}
-                            />
-                        </label>
-                        <p>{errors.email?.message}</p>
+                            <div className="input-wrapper">
+                                <label>*Email:
+                                <input type="email"
+                                        defaultValue={user.email}
+                                        placeholder="Email"
+                                        {...register("email", {
+                                            required: "This field is required",
+                                            pattern: {
+                                                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                                                message: "invalid email address"
+                                            }
+                                        })}
+                                    />
+                                </label>
+                                <p>{errors.email?.message}</p>
+                            </div>
 
-                        <div className="form-btns">
-                            <input type="submit" value="Save" />
-                            <button onClick={handleGoBack}>Cancel</button>
+                            <div className="form-btns">
+                                <button className="primary-btn" type="submit">Save</button>
+                                <button className="delete-btn" onClick={handleGoBack}>Close</button>
+                            </div>
                         </div>
                     </form>}
 
             </div>
-        </div>
+        </div >
     )
 }

@@ -1,0 +1,17 @@
+.user-filter-container{
+
+    .user-filter-form{
+        gap:5px;
+
+        .filter-title{
+            margin-top: 10px;
+            font-family: marvel;
+            font-size: rem(30px);
+        }
+        
+        input{
+            outline: none;
+            padding: 0.5rem;    
+        }
+    }
+}

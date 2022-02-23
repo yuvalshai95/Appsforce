@@ -45,9 +45,10 @@ export function HomePage() {
     <>
       <Outlet />
       <section className="home-page">
-        <h1>Users App</h1>
         <UserFilter />
-        <button onClick={handleAddUser}>Add User</button>
+        <div className="add-user flex justify-center align-center">
+          <button className="primary-btn" onClick={handleAddUser}>Add User</button>
+        </div>
         <UserList
           users={users}
           handleEditUser={handleEditUser}

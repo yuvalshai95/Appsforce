@@ -31,9 +31,9 @@ export function UserMsg() {
 
     return (
         <section className={`user-msg ${userMsg.type}`}>
-            <button className="primary-close-btn" onClick={() => {
+            <button className="close-btn" onClick={() => {
                 onCloseModal()
-            }}><MdOutlineClose className='close-primary-icon' /></button>
+            }}><MdOutlineClose className='close-icon' /></button>
             <p>{userMsg.txt}</p>
         </section>
     )

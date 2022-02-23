@@ -8,17 +8,17 @@ export const UserPreview = ({ user, handleEditUser, handleRemoveUser }) => {
     }
 
     return (
-        <div className="user-preview-container main-layout flex column align-center">
-            <div className="preview-info flex column">
+        <div className="user-preview-container  flex column align-center">
+            <div className="preview-info flex column align-center">
                 <img className="user-img" src={user.imgUrl} alt="user-img" />
-                <p>{`${title} ${firstName} ${lastName}`}</p>
-                <p>{`${street.name}, ${city}`}</p>
-                <p>{country}</p>
-                <p>{user.email}</p>
+                <p className="user-name">{`${title} ${firstName} ${lastName}`}</p>
+                <p className="user-address">{`${street.name}, ${city}`}</p>
+                <p className="user-country">{country}</p>
+                <p className="user-email">{user.email}</p>
             </div>
-            <div className="btns-container flex space-between">
-                <button className="edit-btn" onClick={() => { handleEditUser(user.id) }}>Edit</button>
-                <button className="remove-btn" onClick={onRemoveUser}>Remove</button>
+            <div className="btns-container flex">
+                <button className="primary-btn edit-btn" onClick={() => { handleEditUser(user.id) }}>Edit</button>
+                <button className="delete-btn remove-btn" onClick={onRemoveUser}>Remove</button>
             </div>
         </div>
     )
