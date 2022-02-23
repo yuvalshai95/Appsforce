@@ -13,8 +13,8 @@ export const userService = {
 
 const STORAGE_KEY = 'userDB';
 
-async function query() {
-  return (await storageService.query(STORAGE_KEY)) || _setUsers();
+async function query(filterBy = {email: '', name: '', location: ''}) {
+  return (await storageService.query(STORAGE_KEY, filterBy)) || _setUsers();
 }
 
 async function getUserById(id) {

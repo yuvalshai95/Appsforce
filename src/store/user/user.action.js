@@ -1,13 +1,20 @@
 import {userService} from '../../services/user.service.js';
 
-export function loadUsers() {
+export function loadUsers(filterBy) {
+  if (!filterBy) filterBy = {email: '', name: '', location: ''};
   return async dispatch => {
     try {
-      const users = await userService.query();
+      const users = await userService.query(filterBy);
       dispatch({type: 'SET_USERS', users});
     } catch (err) {
-      console.log('Cannot load useres', err);
+      console.log('Cannot load users', err);
     }
+  };
+}
+
+export function setFilter(filterBy) {
+  return dispatch => {
+    dispatch({type: 'SET_FILTER', filterBy});
   };
 }
 

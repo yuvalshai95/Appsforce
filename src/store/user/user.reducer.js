@@ -25,6 +25,9 @@ export function userReducer(state = initialState, action) {
     case 'SET_MSG':
       return (newState = {...state, userMsg: action.userMsg});
 
+    case 'SET_FILTER':
+      return (newState = {...state, filterBy: {...action.filterBy}});
+
     default:
       return newState;
   }

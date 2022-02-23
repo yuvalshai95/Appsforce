@@ -8,8 +8,21 @@ export const storageService = {
   loadFromStorage,
 };
 
-function query(entityType, delay = 1) {
+function query(entityType, filterBy = {email: '', name: '', location: ''}, delay = 1) {
   var entities = JSON.parse(localStorage.getItem(entityType)) || null;
+  if (filterBy.email) {
+    entities = entities.filter(entity => entity.email.toLowerCase().includes(filterBy.email.toLowerCase()));
+  }
+  if (filterBy.name) {
+    entities = entities.filter(entity =>
+      entity.name.first.toLowerCase().includes(filterBy.name.toLowerCase())
+    );
+  }
+  if (filterBy.location) {
+    entities = entities.filter(entity =>
+      entity.address.country.toLowerCase().includes(filterBy.location.toLowerCase())
+    );
+  }
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(entities);
