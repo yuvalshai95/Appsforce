@@ -11,7 +11,7 @@ export function UserMsg() {
     const dispatch = useDispatch();
 
     const userMsg = useSelector(state => state.userModule.userMsg);
-    console.log('userMsg:', userMsg);
+
 
     const onCloseModal = () => {
         clearTimeout(timeoutId)

@@ -9,7 +9,7 @@ export const storageService = {
 };
 
 function query(entityType, delay = 1) {
-  var entities = JSON.parse(localStorage.getItem(entityType)) || [];
+  var entities = JSON.parse(localStorage.getItem(entityType)) || null;
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(entities);
@@ -24,12 +24,12 @@ function get(entityType, entityId) {
 function post(entityType, newEntity) {
   newEntity._id = _makeId();
   return query(entityType).then(entities => {
-    const isExists = entities.find(entity => { 
-      return entity.username === newEntity.username
-    })
-    if(isExists) { 
-      console.log('Already excits, probably trying to sign up guest again')
-      throw new Error
+    const isExists = entities.find(entity => {
+      return entity.username === newEntity.username;
+    });
+    if (isExists) {
+      console.log('Already exists, probably trying to sign up guest again');
+      throw new Error();
     }
     entities.push(newEntity);
     _save(entityType, entities);
