@@ -1,0 +1,19 @@
+.user-preview-container{
+    border: 1px solid black;
+
+    .preview-info{
+        border: 1px solid black;
+        width:350px;
+        height:300px;
+    
+        .user-img{
+            width: 62px;
+            height: 62px;
+            border: 2px solid black;
+            border-radius: 50%;
+        }
+    }
+    .btns-container{
+        width:350px;
+    }
+}

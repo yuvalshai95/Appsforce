@@ -4,12 +4,22 @@ import {utilService} from './util.service.js';
 
 export const userService = {
   query,
+  getUserById,
+  updateUser,
 };
 
 const STORAGE_KEY = 'userDB';
 
 async function query() {
   return (await storageService.query(STORAGE_KEY)) || _setUsers();
+}
+
+async function getUserById(id) {
+  return await storageService.get(STORAGE_KEY, id);
+}
+
+async function updateUser(user) {
+  return storageService.put(STORAGE_KEY, user);
 }
 
 async function _setUsers() {
@@ -19,7 +29,7 @@ async function _setUsers() {
       id: utilService.makeId(),
       name: user.name,
       email: user.email,
-      imgUrl: user.picture.medium,
+      imgUrl: user.picture.large,
       address: {country: user.location.country, city: user.location.city, street: user.location.street},
     };
     return miniUser;

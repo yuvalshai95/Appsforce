@@ -1,0 +1,25 @@
+.user-edit-screen-overlay{
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.60);
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+
+    .user-edit-container{
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        height: 450px;
+        width: 370px;
+        background-color: #bccfd7;
+        color: black;
+
+        .close-btn{
+            position: absolute;
+            top: 5px;
+            right: 5px;
+        }
+    }
+}

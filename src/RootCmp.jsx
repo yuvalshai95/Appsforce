@@ -1,12 +1,11 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-// Routes
-import routes from './routes.js';
-
 // Cmps
 import { AppHeader } from './cmps/AppHeader';
 import { UserMsg } from './cmps/UserMsg';
+import { HomePage } from './pages/HomePage.jsx';
+import { UserEdit } from './pages/UserEdit.jsx';
 
 export function RootCmp() {
 
@@ -17,9 +16,10 @@ export function RootCmp() {
       <AppHeader />
       <main>
         <Routes>
-          {routes.map(route => (
-            <Route key={route.path} element={route.component} path={route.path} />
-          ))}
+          <Route path='/' element={<HomePage />}>
+            {/* EDIT USER  */}
+            <Route path='edit/:userId' element={<UserEdit />} />
+          </Route>
         </Routes>
       </main>
       <UserMsg />

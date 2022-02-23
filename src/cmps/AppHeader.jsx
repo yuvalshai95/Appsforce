@@ -20,7 +20,7 @@ export function AppHeader() {
             <div className={`screen-overlay ${(isMenuOpen) ? 'open' : ''}`} onClick={() => {
                 toggleMenu()
             }}></div>
-            <section className='header-content'>
+            <section className='header-content main-layout'>
 
                 <NavLink className="logo" to="/">Logo</NavLink>
                 <nav className='nav-container'>

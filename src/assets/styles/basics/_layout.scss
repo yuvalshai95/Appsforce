@@ -1,0 +1,14 @@
+.main-layout{
+    width: 450px;
+    margin: 0 auto;
+
+    @include for-narrow-layout { 
+        width: 450px;
+    }
+    @include for-normal-layout {
+        width: 650px; 
+    }
+    @include for-wide-layout { 
+        width: 1100px; 
+    }
+}
