@@ -7,7 +7,6 @@ import { loadUsers, removeUser } from '../store/user/user.action.js'
 
 
 // Cmps
-import { Loader } from '../cmps/Loader.jsx';
 import { UserList } from '../cmps/UserList.jsx';
 import { UserFilter } from '../cmps/UserFilter.jsx'
 
@@ -23,9 +22,7 @@ export function HomePage() {
     dispatch(loadUsers(filterBy))
   }, [filterBy])
 
-  // const onClickUserMsg = () => {
-  //   dispatch(setUserMsg({ txt: 'Hello!', type: 'info' }))
-  // }
+
 
   const handleRemoveUser = (userId) => {
     dispatch(removeUser(userId))
@@ -39,26 +36,22 @@ export function HomePage() {
     navigate('edit')
   }
 
-  // if (!users) return <Loader />
-
   return (
     <>
       <Outlet />
+
       <section className="home-page">
         <UserFilter />
+
         <div className="add-user flex justify-center align-center">
           <button className="primary-btn" onClick={handleAddUser}>Add User</button>
         </div>
+
         <UserList
           users={users}
           handleEditUser={handleEditUser}
           handleRemoveUser={handleRemoveUser}
         />
-
-
-        {/* <button onClick={() => {
-        onClickUserMsg()
-      }}>User Msg</button> */}
 
       </section>
     </>

@@ -23,7 +23,6 @@ export function UserMsg() {
     }, [userMsg])
 
     const onCloseModal = () => {
-
         dispatch(setUserMsg(null))
     }
 
@@ -31,9 +30,11 @@ export function UserMsg() {
 
     return (
         <section className={`user-msg ${userMsg.type}`}>
-            <button className="close-btn" onClick={() => {
-                onCloseModal()
-            }}><MdOutlineClose className='close-icon' /></button>
+            <button 
+                className="close-btn" 
+                onClick={() => {onCloseModal()}}>
+                <MdOutlineClose className='close-icon' />
+            </button>
             <p>{userMsg.txt}</p>
         </section>
     )

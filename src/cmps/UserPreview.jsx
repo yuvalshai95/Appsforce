@@ -17,8 +17,17 @@ export const UserPreview = ({ user, handleEditUser, handleRemoveUser }) => {
                 <p className="user-email">{user.email}</p>
             </div>
             <div className="btns-container flex">
-                <button className="primary-btn edit-btn" onClick={() => { handleEditUser(user.id) }}>Edit</button>
-                <button className="delete-btn remove-btn" onClick={onRemoveUser}>Remove</button>
+                <button 
+                    className="primary-btn edit-btn" 
+                    onClick={() => { handleEditUser(user.id) }}>
+                    Edit
+                </button>
+
+                <button 
+                    className="delete-btn remove-btn" 
+                    onClick={onRemoveUser}>
+                    Remove
+                </button>
             </div>
         </div>
     )

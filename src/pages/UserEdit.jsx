@@ -25,7 +25,6 @@ export const UserEdit = () => {
     const onLoadUser = async () => {
         const user = userId ? await userService.getUserById(userId) : userService.getEmptyUser();
         setUser(user)
-
     }
 
     const onSubmit = ({ firstName, lastName, title, country, city, street, email }) => {
@@ -178,7 +177,6 @@ export const UserEdit = () => {
                             </div>
                         </div>
                     </form>}
-
             </div>
         </div >
     )

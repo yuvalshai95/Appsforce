@@ -3,8 +3,3 @@
     $remSize: $size / 16px;
     @return ($remSize) * 1rem;
 }
-
-// EM Functions
-@function em($pixels, $context: 16px) {
-    @return ($pixels/$context) * 1em;
-}

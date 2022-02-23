@@ -41,7 +41,7 @@ function post(entityType, newEntity) {
       return entity.email === newEntity.email;
     });
     if (isExists) {
-      console.log('Already exists, probably trying to sign up guest again');
+      console.log('Already exists');
       throw new Error();
     }
     entities.push(newEntity);
