@@ -1,7 +1,6 @@
 .user-preview-container{
-    border: 1px solid red;
     width: 250px;
-    background-color: #f3f3f3;
+    background-color: var(--card-background-color);
     border: 1px solid lightgray;
     box-shadow: rgb(14 30 37 / 0%) 0px 2px 4px 0px, rgb(14 30 37 / 26%) 0px 2px 5px 0px;
 
@@ -17,7 +16,7 @@
         width: 100%;
 
         padding: 15px;
-        color: #282828;
+        color: var(--text-color);
 
         .user-name{
             font-weight: 600;
@@ -41,7 +40,7 @@
     }
     .btns-container{
         margin: 10px 0;
-       gap:10px;
+        gap:10px;
        
     }
 }

@@ -1,4 +1,12 @@
 :root {
+        // Light mode colors
+        --background-color:#fafafa;
+        --header-background-color:#D8D2CB;
+        --card-background-color:#f3f3f3;
+        --user-msg-background-color:#D8D2CB;
+        --text-color:#524A4E;
+        --text-color-active:#0079bf;
+        --user-msg-background-color:#37393D;
 }
 
 * {
@@ -10,15 +18,22 @@ html {
     
 }
 
-::selection {
-    background-color: lighten($clr1, 20%);
-    color: $clr6;
-}
 
 body {
     margin: 0;
     font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Noto Sans,Ubuntu,Droid Sans,Helvetica Neue,sans-serif;
-    overflow-x: hidden;
+    background-color: var(--background-color);
+
+    transition: all ease-in-out .4s;
+
+    &.dark-mode{
+        // Dark mode colors
+        --background-color:#1b1b1b;
+        --header-background-color:#37393D;
+        --card-background-color:#37393D;
+        --text-color:#fff;
+        --user-msg-background-color:#fafafa;
+    }
 }
 
 img {

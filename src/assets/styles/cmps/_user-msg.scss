@@ -9,13 +9,13 @@
     justify-content: center;
     align-items: center;
     min-height: 70px;
-    background: #212427;
+    background: var(--user-msg-background-color);
     padding: 10px;
     border-radius: 3px;
-    color: whitesmoke;
+    color: var(--card-background-color);
 
     .close-btn { 
-        color: white;
+        color: var(--card-background-color);
         background-color: inherit;
         border: none;
         padding: 3px;
